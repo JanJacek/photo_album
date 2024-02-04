@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <h1>Home</h1>
+    <button @click="login()" class="button">login</button>
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Options({
-  components: {
-    HelloWorld,
-  },
+<script setup lang="ts">
+import axios from 'axios';
+function login() {
+  console.log('login')
+  axios.post('http://localhost:8082/orion/',{
+  "username": "test",
+  "password": "password"
 })
-export default class HomeView extends Vue {}
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
 </script>
+
+<style scoped>
+.button {
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(84, 28, 168);
+}
+</style>
