@@ -43,6 +43,7 @@ function logout() {
   axios.post('http://localhost:8082/orion/', {'action':'logout'})
     .then((res) => {
       console.log(res)
+      // if rest is success then rout to admin page
     })
     .catch((err) => {
       console.log(err)
