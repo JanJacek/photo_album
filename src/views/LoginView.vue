@@ -18,7 +18,10 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { ref } from 'vue';
-
+import { AuthStore } from '@/pinia/authStore'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const a_store = AuthStore()
 const  username = ref('');
 const  password = ref('');
 
@@ -32,6 +35,11 @@ function login() {
 })
     .then((res) => {
       console.log(res)
+      if (res.status === 200)
+      a_store.isLoggedIn = true
+    //router push to cms panel
+      router.push('/cms/panel')
+      
     })
     .catch((err) => {
       console.log(err)

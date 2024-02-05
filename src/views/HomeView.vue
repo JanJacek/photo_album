@@ -1,54 +1,12 @@
 <template>
   <div>
-    
     <h1>Home</h1>
-    <div>
-      <input v-model="username" type="text" placeholder="username" />
-    </div>
-    <br />
-    <div>
-      <input v-model="password" type="password" placeholder="password" />
-    </div>
-    <br />
-    <button @click="login()" class="button">login</button>
-    <button @click="logout()" class="logoutButton"> logOut</button>
+    <div style="height: 100px; width: 100px; margin: auto; background-color: black;"></div>
+  
   </div>
 </template>
 
 <script setup lang="ts">
-import axios from 'axios';
-import { ref } from 'vue';
-
-const  username = ref('');
-const  password = ref('');
-
-
-function login() {
-  console.log('?action=login')
-  axios.post('http://localhost:8082/orion/',{
-  'action': 'login',
-  'username': username.value,
-  'password': password.value
-})
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-}
-
-function logout() {
-  console.log('?action=logout');
-  axios.post('http://localhost:8082/orion/', {'action':'logout'})
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-}
-
 </script>
 
 <style scoped>

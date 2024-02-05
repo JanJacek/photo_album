@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <p>Helllo its the amin panel</p>
   </div>
 </template>
 
