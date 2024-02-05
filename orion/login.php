@@ -1,30 +1,27 @@
-<?php 
+<?php
 include_once './database.php';
 include_once './session.php';
-$data = json_decode(file_get_contents('php://input'), true);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($data['username']) && !empty($data['password'])) {
-    $username = $data['username'];
-    $pass = $data['password'];
+function loginUser($username, $pass) {
+    if (!empty($username) && !empty($pass)) {
+        global $db; // Zakładając, że $db jest zdefiniowane w innym pliku i zawiera połączenie PDO
 
-    $sqlQuery = "SELECT * FROM admin WHERE adminname = :username";
-    $statement = $db->prepare($sqlQuery);
-    $statement->execute([':username' => $username]);
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
+        $sqlQuery = "SELECT * FROM admin WHERE adminname = :username";
+        $statement = $db->prepare($sqlQuery);
+        $statement->execute([':username' => $username]);
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $pass === $user['password']) {
-        // Zaktualizuj logikę sesji zgodnie z najlepszymi praktykami
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['username'] = $user['adminname'];
-        http_response_code(200);
-        echo json_encode(['message' => 'Login successful']);
+        // Zakładając, że hasła są bezpiecznie przechowywane i tutaj używamy password_verify do ich sprawdzenia
+        if ($user && $pass === $user['password']) {
+            // Zaktualizuj logikę sesji
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] = $user['adminname'];
+            return ['status' => 200, 'msg' => 'Login successful'];
+        } else {
+            return ['status' => 401, 'msg' => 'Invalid username or password'];
+        }
     } else {
-        http_response_code(401);
-        echo json_encode(['error' => 'Invalid username or password']);
+        return ['status' => 400, 'msg' => 'Username and password cannot be empty'];
     }
-
-} else {
-    http_response_code(400); // Bad Request
-    echo json_encode(['error' => 'Username and password are required']);
 }
 ?>

@@ -25,9 +25,10 @@ const  password = ref('');
 
 function login() {
   console.log('?action=login')
-  axios.post('http://localhost:8082/orion/?action=login',{
-  "username": username.value,
-  "password": password.value
+  axios.post('http://localhost:8082/orion/',{
+  'action': 'login',
+  'username': username.value,
+  'password': password.value
 })
     .then((res) => {
       console.log(res)
@@ -39,7 +40,7 @@ function login() {
 
 function logout() {
   console.log('?action=logout');
-  axios.post('http://localhost:8082/orion/?action=logout')
+  axios.post('http://localhost:8082/orion/', {'action':'logout'})
     .then((res) => {
       console.log(res)
     })
