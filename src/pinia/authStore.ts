@@ -5,6 +5,7 @@ export const AuthStore = defineStore('auth', {
   // state
   state: () => ({
     isLoggedIn: false,
+    albums: ['album1', 'album2', 'album3'],
   }),
 
   // actions

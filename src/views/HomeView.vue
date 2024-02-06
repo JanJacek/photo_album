@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Home</h1>
-    <div style="height: 100px; width: 100px; margin: auto; background-color: black;"></div>
+    <div style="height: 100px; width: 100px; margin: auto; background-color: rgb(25, 221, 185);"></div>
   
   </div>
 </template>

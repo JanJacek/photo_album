@@ -18,10 +18,10 @@ const routes: Array<RouteRecordRaw> = [
     component: LoginViewVue
   },
   {
-    path: '/cms/panel',
+    path: '/cms_panel',
     name: 'cms-panel',
     component: CmsPanelView,
-    meta: { requiresAuth: true }
+    // meta: { requiresAuth: true }
   }
 ]
 
