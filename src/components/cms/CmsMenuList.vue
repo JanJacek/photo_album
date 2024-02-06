@@ -1,12 +1,16 @@
 <template>
-  <div>
-    <h2 class="txt-purple">Admin Panel</h2>
-    <ul class="menu-list cms-list txt-left">
+  <div class="container">
+    <h2 class="color-purple txt-left fs-xl">Admin Panel</h2>
+    <ul class="cms-list txt-left">
       <li>
-        <button to="/admin_panel/albums" class="txt-purple cms-button">Albumy</button>
+        <button to="/admin_panel/albums" class="color-purple cms-button fs-lg">
+          <p class="fs-lg ma-none mb-sm">Albumy</p>
+        </button>
       </li>
       <li>
-        <button to="/admin_panel/informations" class="txt-purple cms-button">Informacje</button>
+        <button to="/admin_panel/informations" class="color-purple cms-button fs-lg">
+          <p class="fs-lg ma-none mb-sm">Informacje</p>
+        </button>
       </li>
     </ul>
   </div>
@@ -16,33 +20,8 @@
 
 </script>
 
-<style scoped>
-.txt-purple{
-    color: #7A36E8;
+<style scoped lang="scss">
+.container{
+  width: 220px;
 }
-.bg-purple{
-    background-color: #7A36E8;
-}
-.cms-button {
-  border: none;
-  background-color: white;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  padding: 0;
-}
-.cms-button:hover {
-  font-weight: bold;
-}
-.cms-button-active {
-  font-weight: bold;
-}
-
-.cms-list{
-  list-style: none;
-  padding: 0;
-}
-
 </style>

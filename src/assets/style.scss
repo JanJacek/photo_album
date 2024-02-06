@@ -1,0 +1,156 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #343434;
+}
+
+$margins: (
+  none: 0,
+  auto: auto,
+  xxs: 2px,
+  xs: 4px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+  xxl: 40px,
+);
+
+@each $name, $margin in $margins {
+  .ma-#{$name} {
+    margin: $margin;
+  }
+  .mt-#{$name} {
+    margin-top: $margin;
+  }
+  .mr-#{$name} {
+    margin-right: $margin;
+  }
+  .mb-#{$name} {
+    margin-bottom: $margin;
+  }
+  .ml-#{$name} {
+    margin-left: $margin;
+  }
+}
+
+$paddings: (
+  none: 0,
+  xxs: 2px,
+  xs: 4px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+  xxl: 40px,
+);
+
+@each $name, $padding in $paddings {
+  .pa-#{$name} {
+    padding: $padding;
+  }
+  .pt-#{$name} {
+    padding-top: $padding;
+  }
+  .pr-#{$name} {
+    padding-right: $padding;
+  }
+  .pb-#{$name} {
+    padding-bottom: $padding;
+  }
+  .pl-#{$name} {
+    padding-left: $padding;
+  }
+}
+
+$font-sizes: (
+  xxs: 12px,
+  xs: 14px,
+  sm: 16px,
+  md: 18px,
+  lg: 24px,
+  xl: 32px,
+  xxl: 40px,
+);
+
+@each $name, $size in $font-sizes {
+  .fs-#{$name} {
+    font-size: $size;
+  }
+}
+
+
+$colors: (
+  purple: #7A36E8,
+  text: #343434
+);
+
+
+// Pętla przez mapę kolorów
+@each $name, $color in $colors {
+  .color-#{$name} {
+    color: $color;
+  }
+}
+
+// bg-color-#{$name}
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.justify-left {
+  justify-content: flex-start;
+}
+.justify-right {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+//flex end
+.align-end {
+  align-items: flex-end;
+}
+
+.txt-left{
+  text-align: left;
+}
+
+  .cms-button {
+    border: none;
+    background-color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .cms-button:hover {
+    font-weight: bold;
+  }
+  .cms-button-active {
+    font-weight: bold;
+  }
+  
+  .cms-list{
+    list-style: none;
+    padding: 0;
+  }
+
+
+

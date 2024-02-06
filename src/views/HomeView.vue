@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Home</h1>
-    <div style="height: 100px; width: 100px; margin: auto; background-color: rgb(25, 221, 185);"></div>
+    <h1>Tu Będzie Strona</h1>
+    <div style="height: 200px; width: 200px; margin: auto; background-color: rgb(0, 0, 0);"></div>
   
   </div>
 </template>
